@@ -24,10 +24,10 @@ A authority controll way based on spring -security that  can  undertake a any  g
   主题表：TESTUSER(用户表)  TESTROLE（角色表） TESTRESOURCE（权限资源表）  TESTUSERROLE（用户角色关系表）  TESTROLERESOURCE(角色资源权限表)
   
 5、优点与缺点
-  优点：
+   优点：
    1、基于权限码的权限控制，几乎可以覆盖通用常见的权限控制，权限的粒度可以达到操作按钮级别
  
- 缺点：
+  缺点：
    1、缺少数据权限的定义，比如控制查询单个用户与查询所有用户是不同权限，但是往往是同一个API，当然这个问题也不是完全不能解决，只需要分别定义针对单个
   和多个用户查询的权限码。
    2、没有添加权限的页面，当然也可以自己写写。
