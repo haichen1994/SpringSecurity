@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dc.security.mapper.UserDaoMapper">
+ 
+ <!-- 查询指定用户名的用户 -->
+  <select id="getUserByName" parameterType="java.lang.String"  resultType="com.dc.security.entity.user.TestUser">
+     SELECT T.USERID,T.USERNAME,T.PASSWORD,T.ISENABLE FROM TESTUSER T WHERE T.USERNAME=#{userName}
+  </select>
+  
+  <!-- 查询所有用户 -->
+  <select id="getUserAll"   resultType="com.dc.security.entity.user.TestUser">
+     SELECT T.USERID,T.USERNAME,T.PASSWORD,T.ISENABLE FROM TESTUSER T ORDER BY T.USERID
+  </select>
+  <!-- 查询指定用户名的权限 -->
+  <select id="getUserResource"  parameterType="java.lang.String"  resultType="com.dc.security.entity.user.TestResource">
+     SELECT t6.* FROM
+				     testuser t1 , 
+				     TESTUSERROLE t4, 
+				     TESTROLERESOURCE t5,
+				     Testresource t6 
+		WHERE   t1.userid = t4.userid
+		   AND t5.roleid = t4.roleid
+		   AND t6.resourceid = t5.resourceid
+		   AND t1.username=#{userName}
+  </select>
+</mapper>
