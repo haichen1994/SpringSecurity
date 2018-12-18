@@ -2,11 +2,11 @@
 A authority controll way based on spring -security that  can  undertake a any  grading  authority controlling .
 
 
-1、一个小的安全、权限控制组件，基于spring 5.0+spring-security 5.0+spring boot 2.0.2
-2、控件的工作流程：
-  2.1 用户，资源，权限，角色等关系实体是基于Oracle数据库的
-  2.2 流程说明：
-     a  拦截用户的请求，判断当前用户是否登录，没有登录则跳转到用户请求页面进行登录。
+1、一个小的安全、权限控制组件，基于spring 5.0+spring-security 5.0+spring boot 2.0.2</br>
+2、控件的工作流程：</br>
+  2.1 用户，资源，权限，角色等关系实体是基于Oracle数据库的</br>
+  2.2 流程说明：</br>
+     a  拦截用户的请求，判断当前用户是否登录，没有登录则跳转到用户请求页面进行登录。</br>
      b  实现spring security 用户服务接口UserDetailsService，内部铜鼓访问数据查询用户数据，并且初始化自定义的用户详细信息  UserDetailsImpl，内部封装了；
       了Spring security的用户。
      c  在查询用户的信息时，同时查询了当前用户的所有具有的权限信息，可以使用缓存，但是这一版本的没有使用缓存。spring security会把这个信息进行封装得到框架
