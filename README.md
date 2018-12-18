@@ -5,7 +5,7 @@ A authority controll way based on spring -security that  can  undertake a any  g
 2、控件的工作流程：</br>
   2.1 用户，资源，权限，角色等关系实体是基于Oracle数据库的</br>
   2.2 流程说明：</br>
-     a  拦截用户的请求，判断当前用户是否登录，没有登录则跳转到用户请求页面进行登录。</br>
+    &nbsp; &nbsp; &nbsp; a  拦截用户的请求，判断当前用户是否登录，没有登录则跳转到用户请求页面进行登录。</br>
      b  实现spring security 用户服务接口UserDetailsService，内部铜鼓访问数据查询用户数据，并且初始化自定义的用户详细信息  UserDetailsImpl，内部封装了Spring security的用户。</br>
      c  在查询用户的信息时，同时查询了当前用户的所有具有的权限信息，可以使用缓存，但是这一版本的没有使用缓存。spring security会把这个信息进行封装得到框架需要的权限集合，请看UserDetailsImpl内部的getAuthorities（）方法。</br>
      d   AccessUrlAuthorizationFilter会拦截用户的请求，检查请求是否带有请求应该具有的权限表示参数auth_code，这个参数表示的意思是访问这个url应该具有的权限编号。</br>
@@ -19,7 +19,7 @@ A authority controll way based on spring -security that  can  undertake a any  g
   
 5、优点与缺点</br>
    优点：</br>
-   1、基于权限码的权限控制，几乎可以覆盖通用常见的权限控制，权限的粒度可以达到操作按钮级别</br></br>
+   1、基于权限码的权限控制，几乎可以覆盖通用常见的权限控制，权限的粒度可以达到操作按钮级别</br>
  
   缺点：</br>
    1、缺少数据权限的定义，比如控制查询单个用户与查询所有用户是不同权限，但是往往是同一个API，当然这个问题也不是完全不能解决，只需要分别定义针对单个
